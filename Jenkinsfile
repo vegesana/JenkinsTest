@@ -6,10 +6,11 @@ pipeline {
 	stages {
 		stage('Build') {
 			parallel {
-				dir('Pipeline1') {
 					stage('sub-build1') {
 						steps {
-							echo "sub-build1 pipleline paralle"
+							dir('Pipeline1') {
+								echo "sub-build1 pipleline paralle"
+							}
 						}
 					}
 					stage('sub-build2') {
@@ -17,8 +18,7 @@ pipeline {
 							echo "sub-build2 pipleline parallel"
 						}
 					}
-				}
-			}
-		}
-	}
+			   }
+		 }
+	 }
 }
