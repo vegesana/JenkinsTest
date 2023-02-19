@@ -5,8 +5,13 @@ pipeline {
 	}
 	stages {
 		stage('Build') {
-			steps {
-				echo "Hello world"
+			parallel {
+				stage('sub-build1') {
+					echo "sub-build1 pipleline paralle"
+				}
+				stage('sub-build2') {
+					echo "sub-build2 pipleline parallel"
+				}
 			}
 		}
 	}
